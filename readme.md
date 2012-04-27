@@ -14,7 +14,9 @@ This is useful for two reasons:
 
 ## Installation ##
 
-	Just clone this repo into the APP/plugins folder
+Just clone this repo into the APP/plugins folder:
+
+	git clone git@github.com:bmilesp/extended_testing.git
 
 ## How to use it ##
 
