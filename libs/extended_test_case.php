@@ -13,9 +13,7 @@ class ExtendedTestCase extends CakeTestCase{
 	 */	
 	
 	function assertIsSubset($subset=array(), $set=array()){
-		
 		$check = $this->assertIsSubsetWrapped($subset,$set);
-		
 		if($check['match'] == true){
 			return $this->assertEqual(1,1);
 		}else{
@@ -71,10 +69,8 @@ class ExtendedTestCase extends CakeTestCase{
 	
 	function checkSubset($subset=array(), $set=array(), $keyTrail=array(), $iteration = 0){
 		foreach ($subset as $key=>$val){
-			if($iteration > 10){
-				die;
-			}
 			if(is_array($val)){
+		
 				$keyTrail[$iteration] = $key;
 				$iteration++;
 				$rdata = $this->checkSubset($val,$set[$key],$keyTrail,$iteration);
@@ -83,8 +79,10 @@ class ExtendedTestCase extends CakeTestCase{
 						'keyTrail'=>$rdata['keyTrail'],'match'=>false, 'errorVals' => $rdata['errorVals']);
 				}
 			}else{
+		
 				$keyTrail[$iteration] = $key;
 				if($val != $set[$key] || !array_key_exists($key, $set)){
+		
 					$errorVals = array('first' => $val, 'second' =>$set[$key]);
 					return array('keyTrail'=>$keyTrail,'match'=>false, 'errorVals' => $errorVals);
 				}	
